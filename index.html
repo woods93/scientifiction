@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Scientifiction Institute</title>
+<meta name="description" content="The Scientifiction Institute: The Amazing Stories of Corky Taylor, the archive, and Radio Free Sloth.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800;900&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#dedcd7;--fg:#141414;--muted:#55534e;--line:#141414;--card:#e9e7e2;--accent:#b3261e}
+@media (prefers-color-scheme:dark){:root{--bg:#171715;--fg:#ecebe6;--muted:#a8a69f;--line:#ecebe6;--card:#222220;--accent:#ff6b5e}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 Archivo,system-ui,sans-serif}
+header{text-align:center;padding:36px 16px 8px}
+.brand{font:900 clamp(34px,6vw,58px)/1 "Playfair Display",serif;letter-spacing:-.02em;color:var(--fg);text-decoration:none;display:inline-block;transform:scaleX(.88)}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 30px;margin:20px auto 0;padding:0 16px}
+nav a{color:var(--fg);text-decoration:none;font-size:14px;letter-spacing:.06em;text-transform:uppercase;padding:6px 0;border-bottom:1px solid transparent}
+nav a[aria-current=page]{border-color:var(--line)}
+nav a:hover{border-color:var(--muted)}
+main{max-width:860px;margin:0 auto;padding:36px 16px 80px}
+.wide{max-width:1200px}
+h1,h2{font-family:"Playfair Display",serif;font-weight:800;line-height:1.1;letter-spacing:-.01em}
+h1{font-size:clamp(28px,5vw,44px);margin:0 0 .5em}
+h2{font-size:24px;margin:1.6em 0 .4em}
+.lede{color:var(--muted);font-size:19px}
+.hero{display:block;margin:0 auto 28px;max-width:min(520px,100%);height:auto}
+figure{margin:28px 0}figure img{max-width:100%;height:auto;display:block;margin:0 auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:20px}
+.grid button{all:unset;cursor:zoom-in;display:block;background:var(--card);aspect-ratio:1;overflow:hidden;border:1px solid color-mix(in srgb,var(--fg) 15%,transparent)}
+.grid button:focus-visible{outline:3px solid var(--accent)}
+.grid img{width:100%;height:100%;object-fit:cover;transition:transform .25s}
+.grid button:hover img{transform:scale(1.04)}
+.tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:8px 0}
+input[type=search]{font:inherit;padding:8px 12px;border:1px solid var(--line);background:var(--card);color:var(--fg);min-width:240px}
+.count{color:var(--muted);font-size:14px}
+.card{background:var(--card);border:1px solid color-mix(in srgb,var(--fg) 20%,transparent);padding:20px 22px;margin:18px 0}
+.card a,main a{color:var(--accent)}
+.soon{text-align:center;color:var(--muted);padding:60px 0;font-style:italic}
+footer{text-align:center;color:var(--muted);font-size:14px;padding:30px 16px 50px;border-top:1px solid color-mix(in srgb,var(--fg) 20%,transparent)}
+footer a{color:var(--muted);margin:0 10px}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;z-index:9;padding:20px}
+#lb.open{display:flex}#lb img{max-width:96vw;max-height:88vh;object-fit:contain}
+#lb button{all:unset;position:absolute;color:#fff;font-size:34px;cursor:pointer;padding:14px;line-height:1}
+#lb .x{top:6px;right:10px}#lb .p{left:6px;top:50%}#lb .n{right:6px;top:50%}
+#lb .cap{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:#ccc;font-size:13px}
+</style></head><body>
+<header><a class="brand" href="#aleph">The Scientifiction Institute</a>
+<nav id="nav" aria-label="Sections"></nav></header>
+<main id="view"></main>
+<footer><a href="https://www.youtube.com/channel/UCB9iVQs8hPSQ7516IbsZZ0w">YouTube</a><a href="https://www.facebook.com/people/The-Scientifiction-Institute/61568764419498/">Facebook</a><div style="margin-top:10px">&copy; The Scientifiction Institute</div></footer>
+<div id="lb" role="dialog" aria-modal="true" aria-label="Image viewer"><button class="x" aria-label="Close">&times;</button><button class="p" aria-label="Previous">&#8249;</button><img alt=""><button class="n" aria-label="Next">&#8250;</button><div class="cap"></div></div>
+<script>
+const D={"base": "https://images.squarespace-cdn.com/content/v1/67107ed38fc94c06b91667bc/", "patch": "6d248591-e02f-496e-a1bd-1c293e5167c2/patch.png", "beit": "87ee2584-dca7-4522-85ee-fe86cf498b68/macfadauditpostcard.png", "gimel": ["9c126eba-b409-4eaf-9758-f78832365ca5/HistoricalHendersonKentucky.jpg", "b736411a-5197-473e-9da1-b4d1825005b6/ace+andpatton.JPG"], "dalet": ["f0183678-a807-46ad-a87c-b3bca68027be/duke.jpeg", "f97f1b84-091d-48b9-89e4-a45c32cf0279/macfadden_healthquote.jpg", "b7e860de-c860-41a6-9402-b12ba04dbf18/pattoncover.png", "a808bcc0-1b7b-41a4-898f-6a96f7d52200/pattonAmazongCover.jpeg", "bef98643-70f4-4b1b-a8ba-ebeb82db3e35/generalwesty.jpg", "12d677a9-05d8-4599-8ac0-9239ef01638b/Henry-Kraver-Peerless-Distilling.jpg", "25b74c2d-85d0-4dce-872d-9e797ccbe739/Screenshot+2024-08-17+at+12.25.32%E2%80%AFAM.png"], "vev": ["7e395f27-a395-4eac-bca6-c51a6ca7af08/send.jpg", "9af417f7-12cc-45bf-b766-27fa1b06a314/acechma.jpeg", "e177055e-416d-4fcc-a2f1-6007a94e76dc/capace.jpeg", "6813ecd6-647d-42fa-a6ba-8b6d6fa8c908/sonnyinTN.jpeg", "97bbb443-32c5-4292-8dee-7e0a20ffa251/starrites.jpeg", "51c57605-3017-4d0a-b13a-7424b87fb4b1/cpl_alfred.jpg", "32de7dd6-c8ec-497c-8bda-f22d6e4e2dde/sonnyCanada.jpg", "68f587b4-a4e2-4480-a455-3a9834e204e9/germanMajor.jpg", "d2d39b95-887f-4540-8807-017cdd946d65/kraver_jockey_club.jpg", "6a4b7190-c4db-45e6-bf98-2d40609c0d35/marathon_ad.jpg"], "zayin": ["6a4b7190-c4db-45e6-bf98-2d40609c0d35/marathon_ad.jpg", "1d7398d5-e3f2-4cea-9b0f-d95a92670a71/1_min_interv.jpg", "bfb1c52b-3827-499e-a559-fcec3898ed93/20th_ann_prohib.jpg", "eca1b82b-a9af-4827-99d2-563ba206232e/advertEvansville1914.jpg", "91fe8c49-119b-4767-a254-5f1d6eb76f0d/AE_home_from_France.jpg", "f9a3759f-3f34-4c0b-b8c5-808b9a63c45c/aet_chi_henry_sick.jpg", "e1068fa7-7009-460a-aaee-4414bc79db05/cpl_alfred.jpg", "587a3330-6640-4d76-b732-30e3161fd531/Henderson_Evening_Journal_1914_02_15_1.jpg", "0f95ea7e-007a-4f7f-83ed-1d8e4d8bd058/kraver_oil.jpg", "7b9ea4e7-a66f-485a-ad1b-23b532fbe6c1/kraver_jockey_club.jpg", "01186cc2-f2eb-4d0f-baf6-b546075bc1cb/tenants1928.jpg", "8e65b7e1-a998-4b77-94e8-44a79df6ce6a/The_Gleaner_1929_02_16_1.jpg", "a7807e5c-4fe6-411d-b6c6-4331cf931037/The_Gleaner_1938_01_27_1.jpg", "5785f2e1-8c80-46fa-aa9e-3e12c68d5b3f/2nd_lt_promo.jpg", "3d6422de-fa1b-4d06-9b36-c0b71603fe22/aet_roy_letter.jpg", "594ee974-6263-4235-9b04-df68cbad8f9d/air_major_uniform_again.jpg", "170d8dd7-a930-488b-b79f-1b4228ef5d77/air_major_uniform_big.jpg", "06184a45-a321-4c82-b288-12fc5aa29c74/basic_training.jpg", "c406d0c1-bf03-4e4c-9f93-242e38c8afa8/barret_high_1940.jpg", "11f94f8e-3c8a-4145-984e-c68218b9e783/dead_colonel.jpg", "5122dfbd-67cc-4a8a-9eb6-0353c916bfbe/germanMajor.jpg", "23d63737-b061-4b31-b3a5-012db8920da6/headquarters.jpg", "d0b72c45-8f2f-424b-b0e4-e22a72984916/I_m_taylor_purple_charge.jpg", "08b7a9f7-33fd-49a6-89ac-a70625454a89/letter+homeThe_Gleaner_1945_02_27_2.jpg", "fdd00698-6992-46b4-b842-62636b1ae30a/mrs_roy_in_NYC.jpg", "bcd269de-61ed-4eb8-b991-0d51a073f9f7/prayerful_hearts.jpg", "eb109e0e-8255-4919-9dc6-6d502c14726a/roy_in_france.jpg", "9b6e7323-3d31-4ba1-8aa9-0dafa2f3d0f8/taylor_benning_ocs.jpg", "2e0540ed-610a-4b8f-8b19-aaffba4d0e91/The_Gleaner_1945_01_14_2.jpg", "c7d85d61-141c-4d36-838c-7814f51164dd/The_Gleaner_1945_07_03_4.jpg", "4d432b99-6889-4da6-8852-6e589fa4662c/allman-CHMA-kid-photo.jpg", "daac7ebc-5778-4a18-ad67-b2f4b85d739a/corky_golf_close.jpg", "0fa1c57c-f0d1-4197-8ca8-8915bfc2ff3c/corky_golf.jpg", "65b53df1-8a9c-4078-9f80-bc8d202a9276/ctgolf.jpg", "06e78e95-14e2-4689-9cac-1b40912ce121/Screenshot+2024-10-28+at+7.27.29%E2%80%AFPM.png", "2b8b87ce-deca-4eed-80df-abd77e22aa15/Screenshot+2024-10-28+at+7.35.40%E2%80%AFPM.png", "14e84fd4-57f1-4b2b-a71a-1769bd65cb6e/AceTaylor.png", "b8794b7a-eff4-4e4e-a1ec-305c65cdccde/patton.png", "4efa6e7d-c8d8-4743-b1d2-1482e25a6807/pattondiary1.png", "4052ff7f-e20c-4713-a48c-fd6fbbeb148d/acepattonletter.png", "5299f40c-0f8f-4adf-a7c6-fec6471dd395/aceweithpatton.png", "fee59e1b-9684-4b6e-8561-e43ec840b3b8/advertEvansville1914.jpg", "835bdeb2-c75d-44b4-b351-5e774fb6cb61/1_min_interv.jpg", "a8c4a3cf-5864-44c4-838d-6fa0449943dd/20th_ann_prohib.jpg", "15ec9bce-3a19-4895-a0bf-d47d09fb8b06/kraver_jockey_club.jpg", "2da3aa47-2951-49db-a94b-f564dfc7a9b2/kraver_oil.jpg", "1da6ce76-996f-47e5-b1cd-9ba4e7d322df/Henderson_Twice_A_Week_Gleaner_1914_02_24_3.jpg", "dc6e4dfd-690f-4298-a80f-a637d8058922/tenants1928.jpg"]};
+const U=p=>D.base+p;
+const nice=p=>decodeURIComponent(p.split('/').pop()).replace(/\+/g,' ').replace(/\.\w+$/,'').replace(/[_-]+/g,' ');
+const tabs=[['aleph','Aleph'],['beit','Beit'],['gimel','Gimel'],['dalet','Dalet'],['hei','Hei'],['vev','Vev'],['zayin','Zayin'],['radio-free-sloth','Radio Free Sloth']];
+const gallery=(list,id)=>`<div class="tools"><input type="search" id="q-${id}" placeholder="Filter images…" aria-label="Filter images"><span class="count" id="c-${id}"></span></div><div class="grid" id="g-${id}"></div>`;
+const pages={
+aleph:()=>`<img class="hero" src="${U(D.patch)}" alt="Scientifiction Institute crest"><h1>The Amazing Stories of Corky Taylor</h1><p class="lede">What makes an American Legend? Why are some heroes remembered and others forgotten, and some stories become mythologized into our shared experience, while others blur into the background detritus? <em>The Amazing Stories of Corky Taylor</em> will explore how the journey one person experiences both reaches into the Verisimilitude of the past and illustrates the resonant kaleidoscope of connections that connect and bind our shared human experience.</p><p>Release date and listening links will be posted here and on <a href="#radio-free-sloth">Radio Free Sloth</a>.</p>`,
+beit:()=>`<h1>Beit</h1><p>As the 1920s crashed into the 1930s, great changes were afoot in Henderson, KY. Prohibition had ended. FDR shuts up the ill-health naysayers (thanks Bernarr, and <em>Liberty</em> magazine) on the way to being sworn in as president, and someone, or some people, be they mobsters, crooked labor union thugs, some Arkansas Traveller, or some other nefarious slickers, threatened to kidnap Henry Kraver’s grandson, Roy “Sonny” Taylor, Jr.</p><p>So, Henry sent “Sonny” down to Castle Heights Military Academy* for safe keeping. “Sonny” ended up in Gen. George S. Patton’s inner circle after charging a machine gun nest, earning a Bronze Star and a Purple Heart in the process. And we shall refer to Roy as “Ace” now, the nickname bestowed on him by the General himself. Patton also gave Ace his beloved, custom sidearm, a Colt army issued 1911 .45 pistol. Then Patton died. Ace went to Hawaii to command the 35th. And Corky learned to surf.</p><p><small>*Henry Kraver died four years later, a victim of injuries sustained after a suspicious “fall” (off the mezzanine, down the stairs?) at the Palmer House Hotel in Chicago, IL. Sixty three thousand barrels and countless bottles of prohibition whiskey later.</small></p><p>Ace fought in Korea and was wounded-in-action (again), was the first officer on the ground in Vietnam, and planned a Bay of Pigs invasion with General Westmoreland. Corky absorbed the art of surfing from Paoa “Duke” Kahanamoku, shlepped golf clubs for General Westmoreland, and earned his own stripes at Castle Heights Military Academy while rooming with Gregg Allman (we don’t talk about Al Gore). Then, after schlepping out of a macher deal on the 50th floor at Rockefeller Center (not Pan Am, mind you), he resurrected Henry’s distillery (DSP-KY-50) and wound up in the Bourbon Hall of Fame.</p><figure><img src="${U(D.beit)}" alt="Macfadden postcard"></figure>`,
+gimel:()=>`<h1>Gimel</h1><p class="lede">On the word “scientifiction.”</p><p>Hugo Gernsback popularized the word in the 1910s and 1920s for fiction that wove scientific fact into romance. It was largely replaced by “science fiction” within a decade. This page will carry the Institute’s own treatment of the term, with citations.</p><div class="card"><strong>Note for the editor:</strong> the original Gimel page quoted a dictionary entry, an encyclopedia excerpt, and a passage on General Patton. Those are quoted from outside sources, so they were not copied here. Send the exact passages you want kept, with attributions, and they will be added.</div>${D.gimel.map(p=>`<figure><img src="${U(p)}" alt="${nice(p)}"></figure>`).join('')}`,
+dalet:()=>`<h1>Dalet</h1><p class="lede">Sources and ephemera.</p>${gallery(D.dalet,'dalet')}`,
+hei:()=>`<h1>3 Days in Pompeii</h1><p class="soon">Coming soon.</p>`,
+vev:()=>`<h1>Chutzpah</h1><p class="lede">Portraits and documents.</p>${gallery(D.vev,'vev')}`,
+zayin:()=>`<h1>Zayin</h1><p class="lede">The archive: newspapers, letters, photographs, and advertisements.</p>${gallery(D.zayin,'zayin')}`,
+'radio-free-sloth':()=>`<h1>Radio Free Sloth</h1><p class="lede">The podcast, the channel, and the conversation that grows out of the Institute’s work.</p><div class="card"><h2 style="margin-top:0">Listen &amp; watch</h2><p><a href="https://www.youtube.com/channel/UCB9iVQs8hPSQ7516IbsZZ0w">The Scientifiction Institute on YouTube</a></p><p>Podcast feed and Substack links will be added here when they are ready.</p></div><div class="card"><h2 style="margin-top:0">Ask the Institute</h2><p>A chat assistant and reader questions will live here.</p></div>`
+};
+const nav=document.getElementById('nav'),view=document.getElementById('view');
+nav.innerHTML=tabs.map(([id,l])=>`<a href="#${id}" data-id="${id}">${l}</a>`).join('');
+let cur=[],idx=0;
+const lb=document.getElementById('lb'),lbi=lb.querySelector('img'),cap=lb.querySelector('.cap');
+function show(i){idx=(i+cur.length)%cur.length;lbi.src=U(cur[idx]);cap.textContent=nice(cur[idx])+'  ('+(idx+1)+'/'+cur.length+')';lb.classList.add('open')}
+lb.querySelector('.x').onclick=()=>lb.classList.remove('open');
+lb.querySelector('.p').onclick=()=>show(idx-1);lb.querySelector('.n').onclick=()=>show(idx+1);
+lb.onclick=e=>{if(e.target===lb)lb.classList.remove('open')};
+addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')lb.classList.remove('open');if(e.key==='ArrowLeft')show(idx-1);if(e.key==='ArrowRight')show(idx+1)});
+function wire(id){const g=document.getElementById('g-'+id);if(!g)return;const list=D[id],q=document.getElementById('q-'+id),c=document.getElementById('c-'+id);
+ const draw=()=>{const t=q.value.toLowerCase();const items=list.map((p,i)=>[p,i]).filter(([p])=>nice(p).toLowerCase().includes(t));
+  g.innerHTML=items.map(([p,i])=>`<button data-i="${i}" aria-label="${nice(p)}"><img loading="lazy" src="${U(p)}" alt="${nice(p)}"></button>`).join('');c.textContent=items.length+' of '+list.length;
+  g.querySelectorAll('button').forEach(b=>b.onclick=()=>{cur=list;show(+b.dataset.i)})};
+ q.oninput=draw;draw()}
+function route(){const id=(location.hash||'#aleph').slice(1);const pid=pages[id]?id:'aleph';
+ view.className=['dalet','vev','zayin'].includes(pid)?'wide':'';view.innerHTML=pages[pid]();wire(pid);
+ nav.querySelectorAll('a').forEach(a=>a.dataset.id===pid?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
+ document.title=(pid==='aleph'?'':tabs.find(t=>t[0]===pid)[1]+' | ')+'The Scientifiction Institute';scrollTo(0,0)}
+addEventListener('hashchange',route);route();
+</script></body></html>
