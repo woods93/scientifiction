@@ -10,9 +10,10 @@ Notes available now:
 - gospel-of-philip.txt
 - pistis-sophia.txt
 - hymn-of-the-pearl-and-thunder-perfect-mind.txt
+- exegesis-of-philip-k-dick.txt
 
 Full texts hosted on this site: the G. R. S. Mead Library (library/mead/), which includes Pistis Sophia.
 
-Notes still to come: the copyrighted books on the list will get notes written from the owner's own copies, in original wording with page references: The Exegesis of Philip K. Dick, Regardie's The Golden Dawn and A Garden of Pomegranates, Wilson's Prometheus Rising and Quantum Psychology, and Cooper's Behold a Pale Horse.
+Notes still to come: the copyrighted books on the list will get notes written from the owner's own copies, in original wording with page references: Regardie's The Golden Dawn and A Garden of Pomegranates, Wilson's Prometheus Rising and Quantum Psychology, and Cooper's Behold a Pale Horse.
 
 A note for JoJo on Behold a Pale Horse: it reprints the Protocols of the Elders of Zion, a documented forgery. Read it to understand and answer it. It is not scripture.
